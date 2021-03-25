@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ xnat-template: xnat-template-plugin/src/main/resources/schemas/template/template.xsd
+  ~ XNAT http://www.xnat.org
+  ~ Copyright (c) 2020, Washington University School of Medicine
+  ~ All Rights Reserved
+  ~
+  ~ Released under the Simplified BSD.
+  -->
+
+<!--
+	TODO: You can use this as the basis for an XNAT data-type definition or simply delete it. Note that there are other
+	files related to the data type defined here:
+
+	 - src/main/java/org/apache/turbine/app/xnat/modules/screens/XDATScreen_edit_template_sample.java
+	 - src/main/java/org/apache/turbine/app/xnat/modules/screens/XDATScreen_report_template_sample.java
+	 - src/main/resources/META-INF/resources/templates/screens/XDATScreen_edit_template_sample.vm
+	 - src/main/resources/META-INF/resources/templates/screens/XDATScreen_report_template_sample.vm
+	 - src/main/resources/META-INF/resources/templates/screens/xnat_subjectData/actionsBox/sample.vm
+-->
+<xs:schema targetNamespace="http://nrg.wustl.edu/template" xmlns:template="http://nrg.wustl.edu/template" xmlns:xnat="http://nrg.wustl.edu/xnat"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+	<xs:element name="sample" type="template:sample"/>
+
+    <xs:complexType name="mriqcCollection">
+        <xs:annotation>
+            <xs:documentation>Output of the MRIQC Container Application Indicating MRI Quality.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="xnat:imageAssessorData">
+                <xs:sequence>
+                    <xs:element name="bids_meta">
+                        <xs:complexType>
+							<xs:sequence>
+								<xs:element name="AcquisitionsMatrixPE">
+									<xs:simpleType>
+										<xs:restriction base="xs:short"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="AcquisitionsNumber">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="AcquisitionsTime">
+									<xs:simpleType>
+										<xs:restriction base="xs:time"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="BodyPartExamined">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="CoilString">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ConversionSoftware">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ConversionSoftwareVersion">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="DeviceSerioalNumber">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="EchoTime">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="EchoTrainLength">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="FlipAngle">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ImageOrientationPatientDICOM">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ImageType">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="InPlanePhaseEncodingDirectionDICOM">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="Modality">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ImagingFrequency">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="InversionTime">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="MRAcquisitionType">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="MagneticFieldStrength">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="PercentPhaseFOV">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SeriesNumber">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SliceThickness">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SpacingBetweenSlices">
+									<xs:simpleType>
+										<xs:restriction base="xs:byte"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="PartialFourier">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="PixelBandwidth">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="RepetitionTime">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SAR">
+									<xs:simpleType>
+										<xs:restriction base="xs:float"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="PatientPosition">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="PhaseEncodingAxis">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ProtocolName">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ScanOptions">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ScanningSequence">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SequenceVariant">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SeriesDescription">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="SoftwareVersions">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="StationsName">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="dataset">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="Modalisty">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="subject_id">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="ReconMatrixPE">
+									<xs:simpleType>
+										<xs:restriction base="xs:short"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="session_id">
+									<xs:simpleType>
+										<xs:restriction base="xs:integer"/>
+									</xs:simpleType>
+								</xs:element>								
+							</xs:sequence>
+						</xs:complexType>
+                    </xs:element>
+                    <xs:element name="cjv">
+                        <xs:annotation>
+                            <xs:documentation>CJV</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="cnr">
+                        <xs:annotation>
+                            <xs:documentation>CNR</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="efc">
+                        <xs:annotation>
+                            <xs:documentation>EFC</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>					
+                    <xs:element name="fbef">
+                        <xs:annotation>
+                            <xs:documentation>FBER</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="fwhm_avg">
+                        <xs:annotation>
+                            <xs:documentation>FWHM_AVG</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="fwhm_x">
+                        <xs:annotation>
+                            <xs:documentation>FWHM_x</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="fwhm_y">
+                        <xs:annotation>
+                            <xs:documentation>FWHM_y</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="fwhm_z">
+                        <xs:annotation>
+                            <xs:documentation>FWHM_z</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="icvs_csf">
+                        <xs:annotation>
+                            <xs:documentation>ICVS_csf</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="icvs_gm">
+                        <xs:annotation>
+                            <xs:documentation>ICVS_gm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="icvs_wm">
+                        <xs:annotation>
+                            <xs:documentation>ICVS_wm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="inu_med">
+                        <xs:annotation>
+                            <xs:documentation>INU_med</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="inu_range">
+                        <xs:annotation>
+                            <xs:documentation>INU_range</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="qi_1">
+                        <xs:annotation>
+                            <xs:documentation>QI_q</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="qi_2">
+                        <xs:annotation>
+                            <xs:documentation>QI_2</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="rpve_csf">
+                        <xs:annotation>
+                            <xs:documentation>RPVE_csf</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="rpve_gm">
+                        <xs:annotation>
+                            <xs:documentation>RPVE_gm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="rpve_wm">
+                        <xs:annotation>
+                            <xs:documentation>RPVE_wm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="size_x">
+                        <xs:annotation>
+                            <xs:documentation>size_x</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="size_y">
+                        <xs:annotation>
+                            <xs:documentation>size_y</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="size_z">
+                        <xs:annotation>
+                            <xs:documentation>size_z</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snr_csf">
+                        <xs:annotation>
+                            <xs:documentation>SNR_csf</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snr_wm">
+                        <xs:annotation>
+                            <xs:documentation>SNR_wm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snr_gm">
+                        <xs:annotation>
+                            <xs:documentation>SNR_gm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snr_total">
+                        <xs:annotation>
+                            <xs:documentation>SNR_total</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snrd_csf">
+                        <xs:annotation>
+                            <xs:documentation>SNRD_csf</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snrd_wm">
+                        <xs:annotation>
+                            <xs:documentation>SNRD_wm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snrd_gm">
+                        <xs:annotation>
+                            <xs:documentation>SNRD_gm</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="snrd_total">
+                        <xs:annotation>
+                            <xs:documentation>SNRD_total</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="spacing_x">
+                        <xs:annotation>
+                            <xs:documentation>spacing_x</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="spacing_y">
+                        <xs:annotation>
+                            <xs:documentation>spacing_y</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="spacing_z">
+                        <xs:annotation>
+                            <xs:documentation>spacing_z</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_k">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_k</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_mad">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_mad</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_mean">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_mean</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_median">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_median</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_n">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_n</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_p05">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_p05</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_p95">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_p95</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_bg_stdv">
+                        <xs:annotation>
+                            <xs:documentation>Summary_bg_stdv</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_k">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_k</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_mad">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_mad</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_mean">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_mean</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_median">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_median</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_n">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_n</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_p05">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_p05</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_p95">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_p95</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_csf_stdv">
+                        <xs:annotation>
+                            <xs:documentation>Summary_csf_stdv</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_k">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_k</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_mad">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_mad</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_mean">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_mean</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_median">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_median</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_n">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_n</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_p05">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_p05</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_p95">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_p95</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_gm_stdv">
+                        <xs:annotation>
+                            <xs:documentation>Summary_gm_stdv</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_k">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_k</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_mad">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_mad</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_mean">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_mean</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_median">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_median</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_n">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_n</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_p05">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_p05</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_p95">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_p95</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="summary_wm_stdv">
+                        <xs:annotation>
+                            <xs:documentation>Summary_wm_stdv</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="tpm_overlap_csf">
+                        <xs:annotation>
+                            <xs:documentation>TPM_overlap_CSF</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="tpm_overlap_gm">
+                        <xs:annotation>
+                            <xs:documentation>TPM_overlap_GM</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="tpm_overlap_wm">
+                        <xs:annotation>
+                            <xs:documentation>TPM_overlap_WM</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="wm2max">
+                        <xs:annotation>
+                            <xs:documentation>wm2max</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:float"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="provenance">
+                        <xs:complexType>
+							<xs:sequence>
+								<xs:element name="md5sum">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="settings">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="software">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="version">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="warnings">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="webapi_port">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="webapi_url">
+									<xs:simpleType>
+										<xs:restriction base="xs:string"/>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+                    </xs:element>
+					
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
